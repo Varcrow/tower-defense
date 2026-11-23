@@ -19,10 +19,12 @@ public class Enemy : MonoBehaviour
 
     transform.position += dir * speed * Time.deltaTime;
 
-    if (Vector3.Distance(transform.position, target.position) < 0.05f) {
+    if (Vector3.Distance(transform.position, target.position) < 0.05f)
+    {
       currentWayPoint++;
 
-      if (currentWayPoint >= wayPoints.Length) {
+      if (currentWayPoint >= wayPoints.Length)
+      {
         // Most likely will have this get destroyed and deal damage if it hits the base first
         Destroy(gameObject); // TEMP DESTRUCTION TO NOT FILL SCREEN WITH SHITE
       }
