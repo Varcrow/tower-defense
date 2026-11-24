@@ -62,7 +62,7 @@ public class TowerAttack : MonoBehaviour
         {
             if (attackType == AttackType.Melee)
             {
-                //MeleeAttack();    *************These Will need to be fixed with your enemy code*************
+                MeleeAttack();
             }
             else
             {
@@ -73,16 +73,15 @@ public class TowerAttack : MonoBehaviour
         }
     }
 
-    //private void MeleeAttack()
-    //{
-    //    //TestEnemyHealth enemyHealth =
-    //        currentTarget.GetComponent<TestEnemyHealth>();        *************These Will need to be fixed with your enemy code*************
+    private void MeleeAttack()
+    {
+        Enemy enemy = currentTarget.GetComponentInParent<Enemy>();
 
-    //    if (enemyHealth != null)
-    //    {
-    //        enemyHealth.TakeDamage(attackDamage);
-    //    }
-    //}
+        if (enemy != null)
+        {
+            enemy.TakeDamage(attackDamage);
+        }
+    }
 
     private void RangedAttack()
     {

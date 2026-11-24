@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
     }
   }
 
-  void TakeDamage(float value) {
+  public void TakeDamage(float value) {
     currentHealth -= value;
 
     // Clamp health to 0

@@ -63,20 +63,22 @@ public class Projectile : MonoBehaviour
         // Check if projectile reached the enemy
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
-            //HitTarget(); *************These Will need to be fixed with your enemy code*************
+            HitTarget();
         }
     }
 
-    //private void HitTarget()
-    //{
-    //    TestEnemyHealth enemyHealth =
-    //        target.GetComponent<TestEnemyHealth>();                   *************These Will need to be fixed with your enemy code*************
+    private void HitTarget()
+    {
+        if (target != null)
+        {
+            Enemy enemy = target.GetComponentInParent<Enemy>();
 
-    //    if (enemyHealth != null)
-    //    {
-    //        enemyHealth.TakeDamage(damage);
-    //    }
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+        }
 
-    //    Destroy(gameObject);
-    //}
+        Destroy(gameObject);
+    }
 }
