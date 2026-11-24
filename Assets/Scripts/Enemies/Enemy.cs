@@ -1,14 +1,27 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-  public int health = 3;
-  public int damage = 1;
-  public int currencyValue = 10;
+  [Header("Attributes")]
+  public float maxHealth = 3;
+  public float damage = 1;
   public float speed = 2f;
+  public int currencyValue = 10;
+
+  [Header("Waypoints")]
   public Transform[] wayPoints;
 
+  [Header("Healthbar Image")]
+  public Image fill;
+
   private int currentWayPoint = 0;
+  private float currentHealth = 0.0f;
+
+  void Awake() {
+    currentHealth = maxHealth;
+    fill.fillAmount = currentHealth / maxHealth;
+  }
 
   void Update()
   {
@@ -31,9 +44,17 @@ public class Enemy : MonoBehaviour
     }
   }
 
-  void TakeDamage(int value) {
-    health -= value;
-    if (health <= 0) {
+  void TakeDamage(float value) {
+    currentHealth -= value;
+
+    // Clamp health to 0
+    currentHealth = currentHealth < 0.0f ? 0.0f : currentHealth;
+
+    // Set fill amount for health bar
+    fill.fillAmount = currentHealth / maxHealth;
+
+    // Check if this should get cooked
+    if (currentHealth <= 0.0f) {
       // Call GameManager.AddCurrency(currencyValue) or something like that
       Destroy(gameObject);
     }
