@@ -2,10 +2,23 @@ using UnityEngine;
 
 public class TowerAttack : MonoBehaviour
 {
+    public enum AttackType
+    {
+        Melee,
+        Ranged
+    }
+
     [Header("Tower Stats")]
     public float attackRange = 3f;
     public float attackDamage = 10f;
     public float attackSpeed = 1f;
+
+    [Header("Attack Type")]
+    public AttackType attackType;
+
+    [Header("Projectile Settings")]
+    public GameObject projectilePrefab;
+    public Transform firePoint;
 
     [Header("Enemy Detection")]
     public LayerMask enemyLayer;
@@ -47,17 +60,49 @@ public class TowerAttack : MonoBehaviour
 
         if (attackTimer <= 0f)
         {
-            TestEnemyHealth enemyHealth =
-                currentTarget.GetComponent<TestEnemyHealth>();
-
-            if (enemyHealth != null)
+            if (attackType == AttackType.Melee)
             {
-                enemyHealth.TakeDamage(attackDamage);
-
-                Debug.Log(gameObject.name + " attacked " + currentTarget.name);
+                //MeleeAttack();    *************These Will need to be fixed with your enemy code*************
+            }
+            else
+            {
+                RangedAttack();
             }
 
             attackTimer = 1f / attackSpeed;
+        }
+    }
+
+    //private void MeleeAttack()
+    //{
+    //    //TestEnemyHealth enemyHealth =
+    //        currentTarget.GetComponent<TestEnemyHealth>();        *************These Will need to be fixed with your enemy code*************
+
+    //    if (enemyHealth != null)
+    //    {
+    //        enemyHealth.TakeDamage(attackDamage);
+    //    }
+    //}
+
+    private void RangedAttack()
+    {
+        if (projectilePrefab == null || firePoint == null)
+        {
+            Debug.LogWarning("Projectile prefab or FirePoint missing!");
+            return;
+        }
+
+        GameObject newProjectile = Instantiate(
+            projectilePrefab,
+            firePoint.position,
+            Quaternion.identity
+        );
+
+        Projectile projectile = newProjectile.GetComponent<Projectile>();
+
+        if (projectile != null)
+        {
+            projectile.SetTarget(currentTarget, attackDamage);
         }
     }
 }
