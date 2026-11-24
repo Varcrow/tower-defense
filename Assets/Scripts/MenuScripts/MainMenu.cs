@@ -17,18 +17,7 @@ public class MainMenu : MonoBehaviour
         quitButton.onClick.AddListener(QuitClick);
     }
 
-    void LevelSelectClick()
-    {
-        SceneManager.LoadScene("LevelSelect");
-    }
-    void SettingsClick()
-    {
-        SceneManager.LoadScene("Settings");
-    }
-    void QuitClick()
-    {
-        Application.Quit();
-    }
-
-
+    void LevelSelectClick(){SceneManager.LoadScene("LevelSelect");}
+    void SettingsClick(){SceneManager.LoadScene("Settings");}
+    void QuitClick(){Application.Quit();}
 }
