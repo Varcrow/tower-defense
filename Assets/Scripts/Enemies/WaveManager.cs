@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class WaveData
 {
   public float duration = 10f;
-  // enemyOne and enemyTwo are temp names till we decide what type of enemies we actually want
   public int regularEnemy = 5;
   public int fastEnemy = 2;
   public int heavyEnemy = 2;
@@ -45,33 +44,34 @@ public class WaveManager : MonoBehaviour
     startWaveButton.interactable = false;
     WaveData wave = waves[currentWave];
 
-    // Need one of these loops per enemy types
+    // Start all spawners at the same time
+    StartCoroutine(SpawnGroup(regularEnemyPrefab, wave.regularEnemy, wave.duration));
+    StartCoroutine(SpawnGroup(fastEnemyPrefab, wave.fastEnemy, wave.duration));
+    StartCoroutine(SpawnGroup(heavyEnemyPrefab, wave.heavyEnemy, wave.duration));
 
-    for (int i = 0; i < wave.regularEnemy; i++)
-    {
-      SpawnEnemy(regularEnemyPrefab);
-      yield return new WaitForSeconds((wave.duration / 3) / wave.regularEnemy);
-    }
+    // Wave is "over" once the duration has elapsed
+    yield return new WaitForSeconds(wave.duration);
 
-    for (int i = 0; i < wave.fastEnemy; i++)
-    {
-      SpawnEnemy(fastEnemyPrefab);
-      yield return new WaitForSeconds((wave.duration / 3) / wave.fastEnemy);
-    }
-
-    for (int i = 0; i < wave.heavyEnemy; i++)
-    {
-      SpawnEnemy(heavyEnemyPrefab);
-      yield return new WaitForSeconds((wave.duration / 3) / wave.heavyEnemy);
-    }
-
-    yield return new WaitForSeconds(wave.duration / 3);
     waveRunning = false;
     startWaveButton.interactable = true;
     currentWave++;
   }
 
-  void SpawnEnemy(GameObject prefab) {
+  IEnumerator SpawnGroup(GameObject prefab, int count, float duration)
+  {
+    if (count <= 0) yield break;
+
+    float interval = duration / count;
+    for (int i = 0; i < count; i++)
+    {
+      SpawnEnemy(prefab);
+      yield return new WaitForSeconds(interval);
+    }
+
+  }
+
+  void SpawnEnemy(GameObject prefab)
+  {
     GameObject e = Instantiate(prefab, wayPoints[0].transform.position, Quaternion.identity);
     Enemy enemy = e.GetComponent<Enemy>();
     enemy.wayPoints = wayPoints;
