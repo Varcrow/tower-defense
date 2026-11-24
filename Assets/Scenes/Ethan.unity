@@ -665,8 +665,16 @@ MonoBehaviour:
   waves:
   - duration: 15
     regularEnemy: 5
-    fastEnemy: 5
-    heavyEnemy: 5
+    fastEnemy: 0
+    heavyEnemy: 0
+  - duration: 15
+    regularEnemy: 10
+    fastEnemy: 0
+    heavyEnemy: 0
+  - duration: 15
+    regularEnemy: 10
+    fastEnemy: 2
+    heavyEnemy: 0
   startWaveButton: {fileID: 692086077}
   regularEnemyPrefab: {fileID: 4344881720665616079, guid: ca609b07dcaef0b45a97fa905a299fbd, type: 3}
   fastEnemyPrefab: {fileID: 1307763863121407922, guid: b849b0e15708364499f3ae7a3262cbbb, type: 3}
