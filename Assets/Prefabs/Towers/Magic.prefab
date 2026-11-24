@@ -115,12 +115,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449541329273934568}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.409, y: -0.015, z: 0.014460309}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0025224818, w: 0.99999684}
+  m_LocalPosition: {x: 0.24188128, y: 0.0242206, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3844343484482504382}
+  m_Father: {fileID: 1867264296008049601}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1708246073567961420
 SpriteRenderer:
@@ -302,6 +302,8 @@ Transform:
   m_Children:
   - {fileID: 6173261546797919606}
   - {fileID: 5066132676671106024}
+  - {fileID: 8543180587024914386}
+  - {fileID: 1374451251453421582}
   m_Father: {fileID: 3844343484482504382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.289}
 --- !u!212 &8173912223940237488
@@ -387,12 +389,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6787090530012563059}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.065, y: 0.003, z: 0.014460309}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0025224818, w: 0.99999684}
+  m_LocalPosition: {x: -0.23220347, y: 0.03982904, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3844343484482504382}
+  m_Father: {fileID: 1867264296008049601}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5883363607045775070
 SpriteRenderer:
@@ -532,7 +534,7 @@ LineRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
@@ -593,7 +595,7 @@ LineRenderer:
     generateLightingData: 0
   m_MaskInteraction: 0
   m_UseWorldSpace: 1
-  m_Loop: 0
+  m_Loop: 1
   m_ApplyActiveColorSpace: 1
 --- !u!114 &2703874578788729615
 MonoBehaviour:
@@ -607,7 +609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5f457c38800634e98c5460859955e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerRange
-  range: 3
   segments: 100
 --- !u!1 &9136370208711866614
 GameObject:
@@ -619,6 +620,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3844343484482504382}
   - component: {fileID: 4759138360725235552}
+  - component: {fileID: 7578359901834803918}
+  - component: {fileID: -1288857967481501198}
+  - component: {fileID: 7521257855143681878}
   m_Layer: 0
   m_Name: Magic
   m_TagString: Untagged
@@ -640,8 +644,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1867264296008049601}
-  - {fileID: 8543180587024914386}
-  - {fileID: 1374451251453421582}
   - {fileID: 4853437209264399286}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -667,3 +669,79 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7578359901834803918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136370208711866614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc20313a5b66dc44975bc169c8fd1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerAttack
+  attackRange: 3.5
+  attackDamage: 30
+  attackSpeed: 0.3
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!61 &-1288857967481501198
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136370208711866614}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &7521257855143681878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136370208711866614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e339697249a8b4c8b88a1b07c02b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerClick

@@ -553,6 +553,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5221295142879753060}
   - component: {fileID: 2502825858248674875}
+  - component: {fileID: -1491126225938448297}
+  - component: {fileID: 6966415800710718527}
+  - component: {fileID: -7649876832716991297}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -601,6 +604,82 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1491126225938448297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399355437184599522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc20313a5b66dc44975bc169c8fd1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::towerAttack
+  attackRange: 4
+  attackDamage: 10
+  attackSpeed: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!61 &6966415800710718527
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399355437184599522}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &-7649876832716991297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399355437184599522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e339697249a8b4c8b88a1b07c02b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerClick
 --- !u!1 &8596171332843227259
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +760,7 @@ LineRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
@@ -741,8 +820,8 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MaskInteraction: 0
-  m_UseWorldSpace: 1
-  m_Loop: 0
+  m_UseWorldSpace: 0
+  m_Loop: 1
   m_ApplyActiveColorSpace: 1
 --- !u!114 &115913108148933661
 MonoBehaviour:
@@ -756,5 +835,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5f457c38800634e98c5460859955e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerRange
-  range: 3
   segments: 100
