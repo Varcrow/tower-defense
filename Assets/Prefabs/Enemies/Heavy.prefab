@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6169129702119759090}
   - component: {fileID: 3860780408031206639}
   - component: {fileID: 6083065921003781386}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9158465897701051830}
   - component: {fileID: 4982034146117408928}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg Right (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 328417313854813938}
   - component: {fileID: 4708186746582601004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5079680340481966828}
   - component: {fileID: 1619024718494678132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg Left (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2148743713978745494}
   - component: {fileID: 2530237448854230257}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 7618215016114746414}
   - component: {fileID: 4521809818502935522}
   - component: {fileID: 2780539264139678914}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 5988912519206604272}
   - component: {fileID: 1237884008724534068}
   - component: {fileID: 3540105153724431800}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 756367950430236586}
   - component: {fileID: 7512840210416100388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 4468853815619313392}
   - component: {fileID: 5555401991871139871}
   - component: {fileID: 2274893959338989020}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Heavy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
