@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,29 +7,38 @@ public class GameManager : MonoBehaviour
   public float maxHealth = 50.0f;
   public int startingCurrency = 20;
 
+  [Header("HUD Reference")]
+  public HUD hud;
+
+  [Header("Currency Increment")]
+  public float interval = 1f;
+  public int currencyIncrementAmount = 1;
+
   private float currentHealth;
-  public int currentCurrency;
+  private int currentCurrency;
+  private Coroutine currencyRoutine;
 
   void Start()
   {
+    currentHealth = maxHealth;
+    currentCurrency = startingCurrency;
+    hud.SetCurrency(currentCurrency);
+    hud.SetHealth(currentHealth, maxHealth);
 
+    // DEBUG BELOW
+    currencyRoutine = StartCoroutine(IncrementCurrency());
   }
 
-  void Update()
+  void UpdateCurrency(int value)
   {
-
-  }
-
-  void UpdateCurrency(int value) {
     currentCurrency += value;
-    // TODO: UPDATE CURRENCY UI
+    hud.SetCurrency(currentCurrency);
   }
 
   public void TakeDamage(float value)
   {
     currentHealth = currentHealth - value < 0 ? 0 : currentHealth - value;
-
-    // TODO: UPDATE HEALTH UI HERE
+    hud.SetHealth(currentHealth, maxHealth);
 
     if (currentHealth <= 0)
     {
@@ -46,5 +56,15 @@ public class GameManager : MonoBehaviour
 
     UpdateCurrency(-cost);
     return true;
+  }
+
+  IEnumerator IncrementCurrency()
+  {
+    var wait = new WaitForSeconds(interval);
+    while (true)
+    {
+      UpdateCurrency(currencyIncrementAmount);
+      yield return wait;
+    }
   }
 }
