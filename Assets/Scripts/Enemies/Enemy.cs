@@ -38,8 +38,9 @@ public class Enemy : MonoBehaviour
 
       if (currentWayPoint >= wayPoints.Length)
       {
-        // Most likely will have this get destroyed and deal damage if it hits the base first
-        Destroy(gameObject); // TEMP DESTRUCTION TO NOT FILL SCREEN WITH SHITE
+        GameManager gm = FindFirstObjectByType<GameManager>(); // THIS RIGHT HERE SUCKS AND SEARCHES THE ENTIRE SCENE OVER AND OVER; FIX WHEN NOT LAZY
+        gm.TakeDamage(damage);
+        Destroy(gameObject); // TEMP DESTRUCTION TO NOT FILL SCREEN WITH SHITE; PROBABLY GONNA BE PERMANANT BECAUSE WHY NOT
       }
     }
   }
@@ -55,7 +56,8 @@ public class Enemy : MonoBehaviour
 
     // Check if this should get cooked
     if (currentHealth <= 0.0f) {
-      // Call GameManager.AddCurrency(currencyValue) or something like that
+      GameManager gm = FindFirstObjectByType<GameManager>(); // THIS STILL SUCKS WHY AM I PUTTING IT HERE AGAIN???
+      gm.UpdateCurrency(currencyValue);
       Destroy(gameObject);
     }
   }

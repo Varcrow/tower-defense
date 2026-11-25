@@ -15,6 +15,6 @@ public class HUD : MonoBehaviour
 
   public void SetHealth(float current, float max)
   {
-    fill.fillAmount = max / current;
+    fill.fillAmount = current / max;
   }
 }

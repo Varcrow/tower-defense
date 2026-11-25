@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     currencyRoutine = StartCoroutine(IncrementCurrency());
   }
 
-  void UpdateCurrency(int value)
+  public void UpdateCurrency(int value)
   {
     currentCurrency += value;
     hud.SetCurrency(currentCurrency);
